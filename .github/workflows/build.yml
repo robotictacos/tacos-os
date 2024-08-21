@@ -40,10 +40,10 @@ jobs:
         uses: jasonn3/build-container-installer@main
         id: build
         with:
-          arch: 'x86_64'  
-          image_name: ghcr.io/robotictacos
-          image_repo: tacos-os
-          image_tag: latest
-          version: 40
-          variant: bluefin-dx
-          iso_name: $image_name-$image_tag-version.iso
+          arch: ${{ env.ARCH}}
+          image_name: ${{ env.IMAGE_NAME}}
+          image_repo: ${{ env.IMAGE_REPO}}
+          image_tag: ${{ env.IMAGE_TAG }}
+          version: ${{ env.VERSION }}
+          variant: ${{ env.VARIANT }}
+          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
