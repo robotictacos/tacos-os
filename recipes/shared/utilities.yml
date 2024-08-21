@@ -21,6 +21,7 @@ modules:
       - cockpit
       - dnf-plugins-core
       - v4l-utils
+      - edk2-ovmf
       - python3-dlib
       - python3-devel
       - opencv

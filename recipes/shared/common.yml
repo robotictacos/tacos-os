@@ -24,6 +24,7 @@ modules:
       - fontawesome-fonts
       - libreoffice-opensymbol-fonts
       - variety
+      
     #   - google-chrome-stable
     #   - gnome-shell-extension-system-monitor-applet
     # optfix:
