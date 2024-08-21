@@ -1,48 +1,128 @@
 # image will be published to ghcr.io/<user>/<name>
-name: tacos-os
+name: xps17-fedora
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: Personal Laptop ISO
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 40 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/bluefin-dx-nvidia
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  # - type: files
+  #   files:
+  #     - source: system
+  #       destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  #                      # put configuration files you want in /usr/etc/ inside the image
+  #                      # while putting files in /etc/ is done on booted system by system administrators.
+  #                      # read more about this in files module reference.
 
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - name: google-chrome
+        url: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64/
+        gpgcheck: 1
+        repo_gpgcheck: 0
+        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+      - name: howdy-beta
+        url: https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/fedora-%OS_VERSION%-x86_64/
+        gpgcheck: 1
+        gpgkey: https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg
+        repo_gpgcheck: 0
+      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/xpadneo/repo/fedora-%OS_VERSION%/atim-xpadneo-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-%OS_VERSION%/ublue-os-akmods-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync-staging/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-staging-fedora-%OS_VERSION%.repo
+      - https://negativo17.org/repos/fedora-multimedia.repo
+    # keys:
+    #   - https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg
+    #   - https://dl-ssl.google.com/linux/linux_signing_key.pub
     install:
-      # - micro
-      # - starship
-    remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
-      # - firefox
-      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      # command line utilities
+      - bc
+      - tldr
+      - btop
+      - borgbackup
+      - clevis
+      - clevis-dracut
+      - clevis-luks
+      - clutter
+      - cockpit
+      - dnf-plugins-core
+      - v4l-utils
+      - python3-dlib
+      - python3-devel
+      - opencv
+      - howdy-beta
+      - howdy-beta-gtk
+      - zoxide
+      # VIRTUALIZATION**************
+      - guestfs-tools
+      - libguestfs-tools
+      - python3-libguestfs
+      # System *********************
+      - profile-sync-daemon
+      - samba
+      - freerdp
+      - irqbalance
+      - ShellCheck
+      - rclone
+      - tlp
+      - tlp-rdw
+      - ImageMagick
+      # Desktop *********************
+      - google-chrome-stable
+
+    #- type: script
+    #script:
+    #- build-prep.sh
+    # - backup_configs.sh
+    # - build-kmod-openrgb.sh
+    # - build-kmod-xpadneo.sh
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
     system:
-      # If no repo information is specified, Flathub will be used by default
-      # repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      # repo-name: flathub
-      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        # - org.mozilla.firefox
-        # - org.gnome.Loupe
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-      # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-      # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-      # Installing different branches of the same Flatpak is not supported.
+        - com.github.IsmaelMartinez.teams_for_linux
+        - org.gnome.FontManager
+        - org.remmina.Remmina
+        - sh.cider.Cider
+        - com.nextcloud.desktopclient.nextcloud
+        - com.valvesoftware.Steam
+        - net.davidotek.pupgui2
+        - hu.irl.cameractrls
+        - it.mijorus.gearlever
+        - com.discordapp.Discord
+        - org.kde.digikam
+        - org.onlyoffice.desktopeditors
+        - com.borgbase.Vorta
+        - us.zoom.Zoom
       remove:
-      # - org.gnome.eog
+        - org.mozilla.Thunderbird
+        
+  - type: brew
+    nofile-limits:  true # increase nofile limits
+    brew-analytics:  false # disable telemetry
 
+  - type: systemd
+    # this example disables automatic flatpak updates and enables a custom service unit for all users
+    system:
+      enabled::
+        - smb.service
+        - nmb.service
+        - libvirtd.service
+    user:
+      enabled:
+        - psd.service # TODO: copy service description files to the repo
+
+  - type: bling
+    install:
+      - 1password # install 1Password (stable) and `op` CLI tool
+      - dconf-update-service # a service unit that updates the dconf db on boot
+    
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
