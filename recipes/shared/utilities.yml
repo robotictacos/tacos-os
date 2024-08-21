@@ -37,6 +37,7 @@ modules:
       - freerdp
       - irqbalance
       - ShellCheck
+      - aria2
       - rclone
       - tlp
       - tlp-rdw
@@ -46,3 +47,5 @@ modules:
     install:
       - 1password
       - dconf-update-service
+
+  - type: yafti

@@ -7,55 +7,44 @@ modules:
         destination: /usr 
 
   # Enable the Chrome repo already on the UBlue Silverblue image and fix the RPM GPG Pubkey issue.
-  # - type: script
-  #   scripts:
-  #     - enable-chrome-yum-repo.sh
-  # - type: rpm-ostree
-  #   repos:
-  #     - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-  #     - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
-  #     - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-  #     - https://copr.fedorainfracloud.org/coprs/atim/xpadneo/repo/fedora-%OS_VERSION%/atim-xpadneo-%OS_VERSION%.repo
-  #     - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-%OS_VERSION%/ublue-os-akmods-fedora-%OS_VERSION%.repo
-  #     - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync-staging/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-staging-fedora-%OS_VERSION%.repo
-  #     - https://negativo17.org/repos/fedora-multimedia.repo
-  #     - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
-  #   install:   
-  #     - langpacks-en
-  #     - nss-tools
-  #     - google-roboto-mono-fonts
-  #     - google-roboto-fonts
-  #     - google-crosextra-caladea-fonts
-  #     - google-crosextra-carlito-fonts
-  #     - liberation-fonts
-  #     - sil-charis-fonts
-  #     - sil-charis-compact-fonts
-  #     - sil-andika-fonts
-  #     - sil-andika-compact-fonts
-  #     - fontawesome-fonts
-  #     - libreoffice-opensymbol-fonts
-  #     - variety
-  #     - google-chrome-stable
-  #     - gnome-shell-extension-system-monitor-applet
-      # - system76-power
-    # optfix:
-    #   - google              
+  - type: script
+    scripts:
+      - enable-chrome-yum-repo.sh
+  - type: rpm-ostree
+    install:   
+      - langpacks-en
+      - nss-tools
+      - google-roboto-mono-fonts
+      - google-roboto-fonts
+      - google-crosextra-caladea-fonts
+      - google-crosextra-carlito-fonts
+      - liberation-fonts
+      - sil-charis-fonts
+      - sil-charis-compact-fonts
+      - sil-andika-fonts
+      - sil-andika-compact-fonts
+      - fontawesome-fonts
+      - libreoffice-opensymbol-fonts
+      - variety
+      - google-chrome-stable
+      - gnome-shell-extension-system-monitor-applet
+    optfix:
+      - google              
 
     remove:
       - firefox
-      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
-  # - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
-  # - type: gschema-overrides  # this sets up our dconf overrides
-  #   include:
-  #     - 50_tr-fedora.gschema.override
-  # - type: script
-  #   snippets:
-  #   # We run this to put get our home CA in the system circle of trust
-  #     #- "update-ca-trust extract"
-  #     - "systemctl enable -f google-chrome-ensure-symlinks-exist.service"
-  #   scripts:      
-  #     - install-system76-wallpaper.sh
+  - type: gschema-overrides  # this sets up our dconf overrides
+    include:
+      - 50_tr-fedora.gschema.override
+  - type: script
+    snippets:
+    # We run this to put get our home CA in the system circle of trust
+      #- "update-ca-trust extract"
+      - "systemctl enable -f google-chrome-ensure-symlinks-exist.service"
+    scripts:      
+      - install-system76-wallpaper.sh
 
 
