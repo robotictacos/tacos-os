@@ -1,37 +1,19 @@
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: /
+  # - type: files
+  #   files:
+  #     - source: system
+  #       destination: /
 
   # Enable the Chrome repo already on the UBlue Silverblue image and fix the RPM GPG Pubkey issue.
-  # - type: script
-  #   scripts:
-  #     - enable-chrome-yum-repo.sh
-  - type: rpm-ostree
-    install:   
-      - langpacks-en
-      - nss-tools
-      - google-roboto-mono-fonts
-      - google-roboto-fonts
-      - google-crosextra-caladea-fonts
-      - google-crosextra-carlito-fonts
-      - liberation-fonts
-      - sil-charis-fonts
-      - sil-charis-compact-fonts
-      - sil-andika-fonts
-      - sil-andika-compact-fonts
-      - fontawesome-fonts
-      - libreoffice-opensymbol-fonts
-      - variety
-      
-    #   - google-chrome-stable
-    #   - gnome-shell-extension-system-monitor-applet
-    # optfix:
-    #   - google              
 
-    remove:
-      - firefox
+  # - type: rpm-ostree
+  #   install:   
+  #     - nss-tools
+  #     - variety
+      
+          
+
+
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
@@ -46,4 +28,22 @@ modules:
   #   scripts:      
   #     - install-system76-wallpaper.sh
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix.
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
 
+  - type: bling
+    install:
+      - 1password
+      - dconf-update-service
+
+  - type: yafti

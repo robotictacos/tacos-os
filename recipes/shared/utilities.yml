@@ -1,4 +1,7 @@
 modules:
+  - type: script
+    scripts:
+      - enable-chrome-yum-repo.sh
   - type: rpm-ostree
     repos:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
@@ -25,6 +28,7 @@ modules:
       - python3-dlib
       - python3-devel
       - opencv
+      - ffmpeg
       #- howdy-beta
       #- howdy-beta-gtk
       - zoxide
@@ -43,10 +47,6 @@ modules:
       - tlp
       - tlp-rdw
       - ImageMagick
-
-  - type: bling
-    install:
-      - 1password
-      - dconf-update-service
-
-  - type: yafti
+      - google-chrome-stable
+    optfix:
+      - google    
