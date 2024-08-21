@@ -1,15 +1,13 @@
 modules:
   - type: files
     files:
-      - source: system/etc
-        destination: /etc
-      - source:: system/usr
-        destination: /usr 
+      - source: system
+        destination: /
 
   # Enable the Chrome repo already on the UBlue Silverblue image and fix the RPM GPG Pubkey issue.
-  - type: script
-    scripts:
-      - enable-chrome-yum-repo.sh
+  # - type: script
+  #   scripts:
+  #     - enable-chrome-yum-repo.sh
   - type: rpm-ostree
     install:   
       - langpacks-en
@@ -26,25 +24,25 @@ modules:
       - fontawesome-fonts
       - libreoffice-opensymbol-fonts
       - variety
-      - google-chrome-stable
-      - gnome-shell-extension-system-monitor-applet
-    optfix:
-      - google              
+    #   - google-chrome-stable
+    #   - gnome-shell-extension-system-monitor-applet
+    # optfix:
+    #   - google              
 
     remove:
       - firefox
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
-  - type: gschema-overrides  # this sets up our dconf overrides
-    include:
-      - 50_tr-fedora.gschema.override
-  - type: script
-    snippets:
-    # We run this to put get our home CA in the system circle of trust
-      #- "update-ca-trust extract"
-      - "systemctl enable -f google-chrome-ensure-symlinks-exist.service"
-    scripts:      
-      - install-system76-wallpaper.sh
+  # - type: gschema-overrides  # this sets up our dconf overrides
+  #   include:
+  #     - 50_tr-fedora.gschema.override
+  # - type: script
+  #   snippets:
+  #   # We run this to put get our home CA in the system circle of trust
+  #     #- "update-ca-trust extract"
+  #     - "systemctl enable -f google-chrome-ensure-symlinks-exist.service"
+  #   scripts:      
+  #     - install-system76-wallpaper.sh
 
 
