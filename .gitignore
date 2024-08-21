@@ -5,3 +5,4 @@ cosign.private
 cosign.key
 cosign.private
 /Containerfile
+/Containerfile.*
