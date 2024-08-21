@@ -1,0 +1,16 @@
+# image will be published to ghcr.io/<user>/<name>
+name: tacos-os
+# description will be included in the image's metadata
+description: A Project Bluefin DX with my personal preference baked in
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: latest # latest is also supported if you want new updates ASAP
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - from-file: shared/common.yml
+  - from-file: shared/flatpaks-full.yml
+  - from-file: shared/ubuntu-wallpaper.yml
+  - from-file: shared/systemd-brew.yml

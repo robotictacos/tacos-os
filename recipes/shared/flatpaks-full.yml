@@ -1,0 +1,26 @@
+modules:
+  - type: default-flatpaks
+    notify: true # Send notification after install/uninstall is finished (true/false)
+    system:
+      install:
+        - com.discordapp.Discord        
+        - org.gimp.GIMP    
+        - com.nextcloud.desktopclient.nextcloud
+        - org.audacityteam.Audacity 
+        - org.openshot.OpenShot 
+        - org.darktable.Darktable
+        - org.gnome.Snapshot
+        - us.zoom.Zoom
+        - org.gnome.FileRoller
+        - org.remmina.Remmina
+        - sh.cider.Cider
+        - com.valvesoftware.Steam
+        - net.davidotek.pupgui2
+        - hu.irl.cameractrls
+        - it.mijorus.gearlever
+        - com.discordapp.Discord
+        - org.kde.digikam
+        - org.onlyoffice.desktopeditors
+        - com.borgbase.Vorta
+      remove:
+        - org.mozilla.Thunderbird 

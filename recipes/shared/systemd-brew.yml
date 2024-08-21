@@ -1,0 +1,20 @@
+modules:
+  - type: brew
+    nofile-limits:  true # increase nofile limits
+    brew-analytics:  false # disable telemetry
+
+  - type: systemd
+    # this example disables automatic flatpak updates and enables a custom service unit for all users
+    system:
+      enabled::
+        - smb.service
+        - nmb.service
+        - libvirtd.service
+    user:
+      enabled:
+        - psd.service # TODO: copy service description files to the repo
+
+  - type: bling
+    install:
+      - 1password # install 1Password (stable) and `op` CLI tool
+      - dconf-update-service # a service unit that updates the dconf db on boot
