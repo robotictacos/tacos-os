@@ -1,5 +1,5 @@
 modules:
   - type: akmods
-    base: main-40 # if not specified, classic "main" base is used by default
+## if not specified, classic "main" base is used by default
     install:
       - framework-laptop
