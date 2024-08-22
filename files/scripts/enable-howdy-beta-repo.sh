@@ -2,9 +2,9 @@
 
 set -oue pipefail 
 # Part of an attempt to add Google Chrome in the usual way.
-echo "Fixing google-chrome yum repo"
-sed -i '/enabled/d' /etc/yum.repos.d/google-chrome.repo 
-echo "enabled=1" >> /etc/yum.repos.d/google-chrome.repo
+echo "Fixing Howdy repo"
+sed -i '/enabled/d' /etc/yum.repos.d/howdy-beta.repo 
+echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
 
 # This does not appear to be necessary, since at this point there are no
 # Google keys in the RPM database.  Will be deleted soon.
@@ -25,7 +25,7 @@ echo "enabled=1" >> /etc/yum.repos.d/google-chrome.repo
 # rpm-ostree to do it cleanly from the yum repo directly.
 # Possibly related to https://github.com/rpm-software-management/rpm/issues/2577
 
-echo "Downloading Google Signing Key"
-curl https://dl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.pub
+echo "Downloading Howdy Signing Key"
+curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 
-rpm --import /tmp/linux_signing_key.pub
+rpm --import /tmp/pubkey.gpg

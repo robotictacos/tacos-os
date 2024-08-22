@@ -18,3 +18,4 @@ modules:
     install:
       - 1password # install 1Password (stable) and `op` CLI tool
       - dconf-update-service # a service unit that updates the dconf db on boot
+      - gnome-vrr

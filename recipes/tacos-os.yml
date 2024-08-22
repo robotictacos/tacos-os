@@ -12,6 +12,6 @@ image-version: latest # latest is also supported if you want new updates ASAP
 modules:
   - from-file: shared/utilities.yml
   - from-file: shared/common.yml
-  - from-file: shared/flatpaks-full.yml
+  #- from-file: shared/flatpaks-full.yml
   - from-file: shared/ubuntu-wallpaper.yml
   - from-file: shared/systemd-brew.yml
