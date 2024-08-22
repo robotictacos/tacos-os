@@ -2,9 +2,9 @@ modules:
   - type: gnome-extensions
     install:
     - 4481 #Forge - forge@jmmaranan.com
-    - space-bar@luchrioh
-    - weatherornot@somepaulo.github.io  
-    - coverflowalttab@palatis.blogspot.com
+    - 5090 #space-bar@luchrioh
+    - 5660 #weatherornot@somepaulo.github.io  
+    - 97   #coverflowalttab@palatis.blogspot.com
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
