@@ -1,7 +1,7 @@
 modules:
   - type: gnome-extensions
     install:
-    - forge@jmmaranan.com
+    - 4481 #Forge - forge@jmmaranan.com
     - space-bar@luchrioh
     - weatherornot@somepaulo.github.io  
     - coverflowalttab@palatis.blogspot.com
