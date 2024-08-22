@@ -3,3 +3,5 @@ modules:
     base: main-40 # if not specified, classic "main" base is used by default
     install:
       - framework-laptop
+      - xone
+      - xpadneo
