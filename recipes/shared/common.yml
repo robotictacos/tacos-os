@@ -25,7 +25,6 @@ modules:
     install:
       - 1password
       - dconf-update-service
-      - gnome-vrr  
 
   - type: yafti
     custom-flatpacks:
