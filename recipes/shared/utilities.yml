@@ -31,8 +31,8 @@ modules:
       - opencv
       - ffmpeg
       - pam_python
-      - howdy-beta
-      - howdy-beta-gtk
+      - howdy
+      - howdy-gtk
       - zoxide
       # VIRTUALIZATION**************
       - guestfs-tools
