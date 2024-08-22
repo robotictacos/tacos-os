@@ -58,7 +58,93 @@ jobs:
   with:
     arch: ${{ env.ARCH}}
     image_name: ${{ env.IMAGE_NAME}}
-    image_repo: ${{ env.IMAGE_REPO}}
+    image_repo: ${{ env.    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Rebuild DevContainer
+          run: |
+            docker-compose down
+            docker-compose up --build --force-recreate
+    
+      bluebuild:
+        name: Build Custom Image
+        runs-on: ubuntu-latest
+        permissions:
+          contents: read
+          packages: write
+          id-token: write
+        strategy:
+          fail-fast: false # stop GH from cancelling all matrix builds if one fails
+          matrix:
+            recipe:
+              # !! Add your recipes here  
+              - tacos-os.yml
+        steps:
+          # the build is fully handled by the reusable github action
+          - name: Build Custom Image
+            uses: blue-build/github-action@v1.6
+            with:
+              recipe: ${{ matrix.recipe }}
+              cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+              registry_token: ${{ github.token }}
+              pr_event_number: ${{ github.event.number }}
+              # enabled by default, disable if your image is small and you want faster builds      
+              maximize_build_space: true
+    
+          - name: Build ISO
+            uses: jasonn3/build-container-installer@main
+            id: build
+            with:
+              arch: ${{ env.ARCH }}
+              image_name: ${{ env.IMAGE_NAME }}
+              image_repo: ${{ env.              jobs:
+                build:
+                  runs-on: ubuntu-latest
+                  steps:
+                  - uses: actions/checkout@v2
+                  - name: Rebuild DevContainer
+                    run: |
+                      docker-compose down
+                      docker-compose up --build --force-recreate
+              
+                bluebuild:
+                  name: Build Custom Image
+                  runs-on: ubuntu-latest
+                  permissions:
+                    contents: read
+                    packages: write
+                    id-token: write
+                  strategy:
+                    fail-fast: false # stop GH from cancelling all matrix builds if one fails
+                    matrix:
+                      recipe:
+                        # !! Add your recipes here  
+                        - tacos-os.yml
+                  steps:
+                    # the build is fully handled by the reusable github action
+                    - name: Build Custom Image
+                      uses: blue-build/github-action@v1.6
+                      with:
+                        recipe: ${{ matrix.recipe }}
+                        cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+                        registry_token: ${{ github.token }}
+                        pr_event_number: ${{ github.event.number }}
+                        # enabled by default, disable if your image is small and you want faster builds      
+                        maximize_build_space: true
+              
+                    - name: Build ISO
+                      uses: jasonn3/build-container-installer@main
+                      id: build
+                      with:
+                        arch: ${{ env.ARCH }}
+                        image_name: ${{ env.IMAGE_NAME }}
+                        image_repo: ${{ env.IMAGE_REPO }}
+                        image_tag: ${{ env.IMAGE_TAG }}
+                        version: ${{ env.VERSION }}
+                        variant: ${{ env.VARIANT }}
+                        iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso}}
     image_tag: ${{ env.IMAGE_TAG }}
     version: ${{ env.VERSION }}
     variant: ${{ env.VARIANT }}
