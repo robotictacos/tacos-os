@@ -31,18 +31,18 @@ jobs:
         recipe:
           # !! Add your recipes here 
           - tacos-os.yml
-    # steps:
-    #    # the build is fully handled by the reusable github action
-    #   - name: Build Custom Image
-    #     uses: blue-build/github-action@v1.6
-    #     with:
-    #       recipe: ${{ matrix.recipe }}
-    #       cosign_private_key: ${{ secrets.SIGNING_SECRET }}
-    #       registry_token: ${{ github.token }}
-    #       pr_event_number: ${{ github.event.number }}
+    steps:
+       # the build is fully handled by the reusable github action
+      - name: Build Custom Image
+        uses: blue-build/github-action@v1.6
+        with:
+          recipe: ${{ matrix.recipe }}
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}
 
-    #       # enabled by default, disable if your image is small and you want faster builds      
-    #       maximize_build_space: true
+          # enabled by default, disable if your image is small and you want faster builds      
+          maximize_build_space: true
 
     #   - name: Build ISO
     #     uses: jasonn3/build-container-installer@main
