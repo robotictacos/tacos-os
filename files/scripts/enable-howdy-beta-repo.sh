@@ -2,9 +2,9 @@
 
 set -oue pipefail 
 # Part of an attempt to add Google Chrome in the usual way.
-echo "Fixing Howdy repo"
-sed -i '/enabled/d' /etc/yum.repos.d/howdy-beta.repo 
-echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
+# echo "Fixing Howdy repo"
+# sed -i '/enabled/d' /etc/yum.repos.d/howdy-beta.repo 
+# echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
 
 # This does not appear to be necessary, since at this point there are no
 # Google keys in the RPM database.  Will be deleted soon.
@@ -29,3 +29,5 @@ echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
 # curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 
 # rpm --import /tmp/pubkey.gpg
+
+dnf install -y howdy-beta howdy-beta-gtk

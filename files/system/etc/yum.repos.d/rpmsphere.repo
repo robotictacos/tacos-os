@@ -1,0 +1,6 @@
+[rpmsphere]
+name=RPM Sphere - Basearch
+baseurl=https://github.com/rpmsphere/$basearch/raw/master/
+skip_if_unavailable=True
+gpgcheck=0
+enabled=1
