@@ -25,7 +25,7 @@ echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
 # rpm-ostree to do it cleanly from the yum repo directly.
 # Possibly related to https://github.com/rpm-software-management/rpm/issues/2577
 
-echo "Downloading Howdy Signing Key"
-curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
+# echo "Downloading Howdy Signing Key"
+# curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 
-rpm --import /tmp/pubkey.gpg
+# rpm --import /tmp/pubkey.gpg
