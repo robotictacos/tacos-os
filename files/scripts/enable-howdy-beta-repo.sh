@@ -29,5 +29,5 @@ echo "Downloading Howdy Signing Key"
 curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 
 dnf copr enable principis/howdy-beta
-dnf --refresh -y install howdy howdy-gtk
+dnf --refresh --nogpgcheck -y install howdy howdy-gtk
 

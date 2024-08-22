@@ -10,8 +10,14 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+                       # put configuration files you want in /usr/etc/ inside the image
+                       # while putting files in /etc/ is done on booted system by system administrators.
+                       # read more about this in files module reference.
   - from-file: shared/utilities.yml
   - from-file: shared/common.yml
-  #- from-file: shared/flatpaks-full.yml
   - from-file: shared/ubuntu-wallpaper.yml
   - from-file: shared/systemd-brew.yml
