@@ -14,6 +14,10 @@ modules:
       - https://negativo17.org/repos/fedora-multimedia.repo
     install:
       # command line utilities
+      - p7zip-gui
+      - p7zip-plugins
+      - p7zip-doc
+      - python3-extractcode-7z
       - bc
       - tldr
       - btop
@@ -30,9 +34,6 @@ modules:
       - python3-devel
       - opencv
       - ffmpeg
-      #- pam_python
-      #- howdy
-      #- howdy-gtk
       - zoxide
       # VIRTUALIZATION**************
       - guestfs-tools
