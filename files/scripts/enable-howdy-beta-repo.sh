@@ -30,5 +30,5 @@ curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pub
 rpm --import /tmp/linux_signing_key.pub
 
 #dnf copr enable principis/howdy-beta
-dnf --refresh -y install howdy howdy-gtk
+dnf install -y howdy howdy-gtk
 
