@@ -18,6 +18,14 @@ on:
   pull_request:
   workflow_dispatch: # allow manually triggering builds
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Rebuild DevContainer
+      run: |
+        docker-compose down
+        docker-compose up --build --force-recreate
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
@@ -44,15 +52,14 @@ jobs:
           # enabled by default, disable if your image is small and you want faster builds      
           maximize_build_space: true
 
-    #   - name: Build ISO
-    #     uses: jasonn3/build-container-installer@main
-    #     id: build
-    #     with:
-    #       arch: ${{ env.ARCH}}
-    #       image_name: ${{ env.IMAGE_NAME}}
-    #       image_repo: ${{ env.IMAGE_REPO}}
-    #       image_tag: ${{ env.IMAGE_TAG }}
-    #       version: ${{ env.VERSION }}
-    #       variant: ${{ env.VARIANT }}
-    #       #iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.isoenv:
-    #       iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
+      - name: Build ISO
+        uses: jasonn3/build-container-installer@main
+        id: build
+        with:
+          arch: ${{ env.ARCH }}
+          image_name: ${{ env.IMAGE_NAME }}
+          image_repo: ${{ env.IMAGE_REPO }}
+          image_tag: ${{ env.IMAGE_TAG }}
+          version: ${{ env.VERSION }}
+          variant: ${{ env.VARIANT }}
+          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
