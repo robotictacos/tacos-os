@@ -18,14 +18,6 @@ on:
   pull_request:
   workflow_dispatch: # allow manually triggering builds
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Rebuild DevContainer
-      run: |
-        docker-compose down
-        docker-compose up --build --force-recreate
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
