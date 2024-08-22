@@ -30,8 +30,8 @@ modules:
       - python3-devel
       - opencv
       - ffmpeg
-      - howdy-beta
-      - howdy-beta-gtk
+      #- howdy-beta
+      #- howdy-beta-gtk
       - zoxide
       # VIRTUALIZATION**************
       - guestfs-tools

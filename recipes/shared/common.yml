@@ -1,32 +1,12 @@
 modules:
-  # - type: files
-  #   files:
-  #     - source: system
-  #       destination: /
-
-  # Enable the Chrome repo already on the UBlue Silverblue image and fix the RPM GPG Pubkey issue.
-
-  # - type: rpm-ostree
-  #   install:   
-  #     - nss-tools
-  #     - variety
+  - type: gnome-extensions
+    install:
+    - forge@jmmmaranan.com
+    - space-bar@luchrioh
+    - weatherornot@somepaulo.github.io  
+    - coverflowalttab@palatis.blogspot.com
       
-          
-
-
-
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
-
-  # - type: gschema-overrides  # this sets up our dconf overrides
-  #   include:
-  #     - 50_tr-fedora.gschema.override
-  # - type: script
-  #   snippets:
-  #   # We run this to put get our home CA in the system circle of trust
-  #     #- "update-ca-trust extract"
-  #     - "systemctl enable -f google-chrome-ensure-symlinks-exist.service"
-  #   scripts:      
-  #     - install-system76-wallpaper.sh
 
   - type: fonts
     fonts:
@@ -46,7 +26,7 @@ modules:
       - 1password
       - dconf-update-service
       - gnome-vrr  
-      
+
   - type: yafti
     custom-flatpacks:
       Discord: com.discordapp.Discord
