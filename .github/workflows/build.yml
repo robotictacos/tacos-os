@@ -32,10 +32,26 @@ jobs:
           # !! Add your recipes here  
           - tacos-os.yml
     steps:
-       # the build is fully handled by the reusable github action
-      - name: Build Custom Image
-        uses: blue-build/github-action@v1.6
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'robotictacos'
+          git config --global user.email 'dave@codeandbeer.net'
+
+      - name: Create Tag
+        id: tag
+        run: |
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+          echo "::set-output name=tag::$TAG_NAME"
+
+      - name: Create Release
+        uses: actions/create-release@v1
         with:
+<<<<<<< HEAD
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
@@ -55,3 +71,11 @@ jobs:
           version: ${{ env.VERSION }}
           variant: ${{ env.VARIANT }}
           iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
+=======
+          tag_name: ${{ steps.tag.outputs.tag }}
+          release_name: Release ${{ steps.tag.outputs.tag }}
+          body: "Automated release"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+>>>>>>> d51e800 (chore: Update build workflow to include tag creation and release creation)
