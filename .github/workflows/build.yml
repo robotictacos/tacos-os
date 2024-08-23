@@ -42,7 +42,12 @@ jobs:
 ############################################################################################################
 
 # Dont touch above this line, that part works..
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Set Timestamp
+        id: set-timestamp
+        run: echo "IMAGE_VERSION=$(date -u +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Create Tag
         id: tag
