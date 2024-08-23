@@ -55,9 +55,9 @@ jobs:
           TAG_NAME=tacos-os-latest
           git config --global user.email "dave@codeandbeer.net"
           git config --global user.name "robotictacos"
-          git tag $IMAGE_VERSION
-          git push origin $IMAGE_VERSION
-          echo "::set-output name=tag::$IMAGE_VERSION"
+          git tag ${{ vars.IMAGE_VERSION }} -m "Automated build"
+          git push origin ${{ vars.IMAGE_VERSION }}
+          echo "::set-output name=tag::${{ vars.IMAGE_VERSION }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
