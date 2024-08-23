@@ -32,3 +32,26 @@ jobs:
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
+
+############################################################################################################
+
+# Dont touch above this line, that part works..
+
+
+      - name: Create Tag
+        id: tag
+        run: |
+          TAG_NAME=$IMAGE_NAME-$IMAGE_VERSION
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+          echo "::set-output name=tag::$TAG_NAME"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          release_name: Release ${{ steps.tag.outputs.tag }}
+          body: "Automated release"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
