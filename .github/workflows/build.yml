@@ -52,7 +52,9 @@ jobs:
       - name: Create Tag
         id: tag
         run: |
-          TAG_NAME=tacos-os-latest 
+          TAG_NAME=tacos-os-latest
+          git config --global user.email "dave@codeandbeer.net"
+          git config --global user.name "robotictacos"
           git tag $TAG_NAME
           git push origin $TAG_NAME
           echo "::set-output name=tag::$TAG_NAME"
