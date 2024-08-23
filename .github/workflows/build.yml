@@ -57,7 +57,7 @@ jobs:
           git config --global user.name "robotictacos"
           git tag ${{ vars.IMAGE_VERSION }} -m "Automated build"
           git push origin ${{ vars.IMAGE_VERSION }}
-          echo "::set-output name=tag::${{ vars.IMAGE_VERSION }}"
+          echo "tag=${{ vars.IMAGE_VERSION }}" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
