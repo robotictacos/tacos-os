@@ -1,6 +1,0 @@
-ARCH:x86_64  
-IMAGE_NAME:tacos-os
-IMAGE_REPO:ghcr.io/robotictacos
-IMAGE_TAG:${VERSION}
-VERSION:40
-VARIANT:bluefin-dx
