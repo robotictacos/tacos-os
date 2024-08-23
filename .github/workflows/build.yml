@@ -56,7 +56,9 @@ jobs:
           git tag $TAG_NAME
           git push origin $TAG_NAME
           echo "::set-output name=tag::$TAG_NAME"
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Create Release
         uses: actions/create-release@v1
         with:
