@@ -47,7 +47,7 @@ jobs:
 
       - name: Set Timestamp
         id: set-timestamp
-        run: vars.IMAGE_VERSION=$(date -u +"%Y%m%d%H%M%S")
+        run: echo $(date -u +"%Y%m%d%H%M%S") >> vars.IMAGE_VERSION
 
       - name: Create Tag
         id: tag
