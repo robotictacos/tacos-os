@@ -20,7 +20,7 @@ jobs:
     name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write  # Ensure write permission to push tags
       packages: write
       id-token: write
     strategy:
@@ -47,7 +47,7 @@ jobs:
 
       - name: Set Timestamp
         id: set-timestamp
-        run: echo "::set-output name=IMAGE_VERSION::$(date -u +"%Y%m%d%H%M%S")"
+        run: echo "IMAGE_VERSION=$(date -u +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Create Tag
         id: tag
