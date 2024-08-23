@@ -52,7 +52,7 @@ jobs:
       - name: Create Tag
         id: tag
         run: |
-          TAG_NAME=${{ vars.IMAGE_NAME }}-${{ vars.IMAGE_VERSION }}  
+          TAG_NAME=tacos-os-latest 
           git tag $TAG_NAME
           git push origin $TAG_NAME
           echo "::set-output name=tag::$TAG_NAME"
