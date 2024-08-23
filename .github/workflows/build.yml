@@ -47,7 +47,7 @@ jobs:
 
       - name: Set Timestamp
         id: set-timestamp
-        run: echo "IMAGE_VERSION=$(date -u +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+        run: vars.IMAGE_VERSION=$(date -u +'%Y%m%d%H%M%S')
 
       - name: Create Tag
         id: tag
