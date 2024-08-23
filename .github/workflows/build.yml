@@ -43,7 +43,7 @@ jobs:
 
 # Dont touch above this line, that part works..
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set Timestamp
         id: set-timestamp
