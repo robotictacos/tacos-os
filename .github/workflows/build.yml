@@ -6,9 +6,15 @@ on:
   push:
     paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
-      
+    branches:
+      - main     
   pull_request:
+
   workflow_dispatch: # allow manually triggering builds
+
+permissions:
+  contents: write  # Grant write permission to contents
+
 jobs:
   daily-image-builds:
     name: Build Custom Image
