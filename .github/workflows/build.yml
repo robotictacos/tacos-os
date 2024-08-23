@@ -1,16 +1,8 @@
 name: bluebuild
-env:
-  ARCH: x86_64
-  IMAGE_NAME: tacos-os
-  IMAGE_REPO: ghcr.io/robotictacos
-  IMAGE_TAG: latest
-  VERSION: 1.0
-  VARIANT: ghcr.io/ublue-os/bluefin-dx
-
 on:
   schedule:
-    - cron: "00 06 * * *" # build at 06:00 UTC every day 
-                          # (20 minutes after last ublue images start building)
+    - cron: "00 7 * * *" # build at 7:00 UTC every day 
+                          # (ublue images start building at 05:04 UTC)
   push:
     paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
@@ -18,7 +10,7 @@ on:
   pull_request:
   workflow_dispatch: # allow manually triggering builds
 jobs:
-  bluebuild:
+  daily-image-builds:
     name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:
@@ -29,56 +21,14 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          # !! Add your recipes here  
+          # !! Add your recipes here 
           - tacos-os.yml
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Git
-        run: |
-          git config --global user.name 'robotictacos'
-          git config --global user.email 'dave@codeandbeer.net'
-
-      - name: Create Tag
-        id: tag
-        run: |
-          TAG_NAME=$IMAGE_NAME-$IMAGE_VERSION
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
-          echo "::set-output name=tag::$TAG_NAME"
-
-      - name: Create Release
-        uses: actions/create-release@v1
+       # the build is fully handled by the reusable github action
+      - name: Build Custom Image
+        uses: blue-build/github-action@v1.5
         with:
-          tag_name: ${{ steps.tag.outputs.tag }}
-          release_name: Release ${{ steps.tag.outputs.tag }}
-          body: "Automated release"
-          draft: false
-          prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build ISO
-        uses: jasonn3/build-container-installer@main
-        id: build
-        with:
-          arch: ${{ env.ARCH}}
-          image_name: ${{ env.IMAGE_NAME}}
-          image_repo: ${{ env.IMAGE_REPO}}
-          image_tag: ${{ env.IMAGE_TAG }}
-          version: ${{ env.VERSION }}
-          variant: ${{ env.VARIANT }}
-          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
-
-      # This example is for uploading your ISO as a Github artifact. You can do something similar using any cloud storage, so long as you copy the output
-      - name: Upload ISO as artifact
-        id: upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ steps.build.outputs.iso_name }}
-          path: |
-            ${{ steps.build.outputs.iso_path }}
-            ${{ steps.build.outputs.iso_path }}-CHECKSUM
-          if-no-files-found: error
-          retention-days: 0
-          compression-level: 0
+          recipe: ${{ matrix.recipe }}
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}
