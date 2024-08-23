@@ -58,7 +58,7 @@ jobs:
           echo "::set-output name=tag::$TAG_NAME"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Create Release
         uses: actions/create-release@v1
         with:
@@ -67,4 +67,5 @@ jobs:
           body: "Automated release"
           draft: false
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
