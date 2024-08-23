@@ -1,5 +1,5 @@
 modules:
   - type: akmods
-## if not specified, classic "main" base is used by default
+    base: fsync-40  #if not specified, classic "main" base is used by default
     install:
       - framework-laptop
