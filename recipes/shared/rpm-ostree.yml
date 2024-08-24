@@ -1,5 +1,7 @@
 modules:
   - type: script
+    snippets: 
+      - "rpm-ostree reset"
     scripts:
       - enable-chrome-yum-repo.sh
       - enable-howdy-beta-repo.sh
