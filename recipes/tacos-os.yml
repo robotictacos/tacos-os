@@ -17,6 +17,12 @@ modules:
                        # put configuration files you want in /usr/etc/ inside the image
                        # while putting files in /etc/ is done on booted system by system administrators.
                        # read more about this in files module reference.
+  - type: script
+    snippet:
+      - "rpm-ostree reset"
+    scripts:
+      - enable-chrome-yum-repo.sh
+      - enable-howdy-beta-repo.sh
   - from-file: shared/akmods.yml
   - from-file: shared/rpm-ostree.yml
   - from-file: shared/common.yml

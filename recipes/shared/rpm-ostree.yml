@@ -1,8 +1,4 @@
 modules:
-  - type: script
-    scripts:
-      - enable-chrome-yum-repo.sh
-      - enable-howdy-beta-repo.sh
   - type: rpm-ostree
     repos:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
@@ -21,7 +17,6 @@ modules:
       - cockpit
       - dnf-plugins-core
       - v4l-utils
-      - fish
       - python3-dlib
       - python3-devel
       - opencv
@@ -38,20 +33,10 @@ modules:
       - crontabs
       - timeshift
       - profile-sync-daemon
-      - samba
       - irqbalance
       - tlp
       - tlp-rdw
       - google-chrome-stable
-      - code
-      - cockpit-machines
-      - cockpit-networkmanager
-      - cockpit-ostree
-      - cockpit-pcp
-      - cockpit-podman
-      - cockpit-selinux
-      - cockpit-storaged
-      - cockpit-system
       - fastfetch
     optfix:
       - google
