@@ -36,7 +36,7 @@ modules:
       - edk2-ovmf
       # System *********************
       - cronie
-      - chronie-anacron
+      - cronie-anacron
       - crontabs
       - timeshift
       - profile-sync-daemon
