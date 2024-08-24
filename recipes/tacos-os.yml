@@ -18,7 +18,7 @@ modules:
                        # while putting files in /etc/ is done on booted system by system administrators.
                        # read more about this in files module reference.
   - from-file: shared/akmods.yml
-  - from-file: shared/rpm-ostree.yml
+  #- from-file: shared/rpm-ostree.yml
   - from-file: shared/common.yml
   - from-file: shared/systemd-brew.yml
   - from-file: shared/ubuntu-wallpaper.yml

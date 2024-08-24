@@ -15,7 +15,6 @@ modules:
       - tldr
       - btop
       - clevis-dracut
-      - clutter
       - cockpit
       - dnf-plugins-core
       - v4l-utils
