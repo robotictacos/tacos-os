@@ -16,16 +16,14 @@ modules:
       - p7zip-plugins
       - p7zip-doc
       - python3-extractcode-7z
-      - bc
       - tldr
       - btop
-      - borgbackup
       - clevis-dracut
       - clutter
       - cockpit
       - dnf-plugins-core
       - v4l-utils
-      - edk2-ovmf
+      - fish
       - python3-dlib
       - python3-devel
       - opencv
@@ -35,7 +33,12 @@ modules:
       - guestfs-tools
       - libguestfs-tools
       - python3-libguestfs
+      - edk2-ovmf
       # System *********************
+      - cronie
+      - chronie-anacron
+      - crontabs
+      - timeshift
       - profile-sync-daemon
       - samba
       - freerdp
