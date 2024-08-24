@@ -20,3 +20,5 @@ for file in "${config_files[@]}"; do
         echo "Error: ${source_folder} does not exist in ${destination_folder}/"
     fi
 done
+
+cp ${source_dir}/sudoers ${destination_dir}/
