@@ -1,0 +1,8 @@
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="default_hugepagesz=2M hugepagesz=2M hugepages=8192 rhgb" #"rd.lvm.lv=bluefin-dx-nvidia_fedora/root rd.luks.uuid=luks-6ef5d52f-812c-4ca9-86f5-df4ac3b4c500 rd.luks.uuid=luks-dcb122cb-10aa-4f6f-82e6-1eb79518623d"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
