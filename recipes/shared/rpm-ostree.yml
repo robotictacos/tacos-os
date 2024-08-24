@@ -27,10 +27,10 @@ modules:
       - ffmpeg
       - zoxide
       # VIRTUALIZATION**************
-      # - guestfs-tools
-      # - libguestfs-tools
-      # - python3-libguestfs
-      # - edk2-ovmf
+      - guestfs-tools
+      - libguestfs-tools
+      - python3-libguestfs
+      - edk2-ovmf
       # System *********************
       - cronie
       - cronie-anacron
