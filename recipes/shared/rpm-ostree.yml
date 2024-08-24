@@ -12,10 +12,6 @@ modules:
       #- https://negativo17.org/repos/fedora-multimedia.repo
     install:
       # command line utilities
-      - p7zip-gui
-      - p7zip-plugins
-      - p7zip-doc
-      - python3-extractcode-7z
       - tldr
       - btop
       - clevis-dracut
@@ -41,14 +37,9 @@ modules:
       - timeshift
       - profile-sync-daemon
       - samba
-      - freerdp
       - irqbalance
-      - ShellCheck
-      - aria2
-      - rclone
       - tlp
       - tlp-rdw
-      - ImageMagick
       - google-chrome-stable
     optfix:
       - google
