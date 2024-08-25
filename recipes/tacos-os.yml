@@ -27,4 +27,5 @@ modules:
   - from-file: shared/rpm-ostree.yml
   - from-file: shared/common.yml
   - from-file: shared/systemd-brew.yml
+  - from-file: shared/removals.yml
   - from-file: shared/ubuntu-wallpaper.yml

@@ -1,0 +1,19 @@
+modules:
+  - type: rpm-ostree
+    remove:
+    - epson-inkjet-printer-escpr
+    - epson-inkjet-printer-escpr2
+    - opendyslexic-fonts
+    - printer-driver-brlaser
+    - pulseaudio-utils
+    - tmux
+    - adobe-source-code-pro-fonts
+    - android-tools
+    - devpod
+    - incus
+    - incus-agent
+
+  - type: default-flatpaks
+    system:
+      remove:
+        - app/org.gnome.Characters/x86_64/stable
