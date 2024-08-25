@@ -11,6 +11,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
     install:
       # command line utilities
+      - system76-driver
       - tldr
       - btop
       - clevis-dracut
@@ -32,12 +33,13 @@ modules:
       - cronie-anacron
       - crontabs
       - timeshift
-      - profile-sync-daemon
       - irqbalance
-      - tlp
-      - tlp-rdw
       - google-chrome-stable
       - fastfetch
+      - gnome-shell-extension-pop-shell
+      - system76*
+      - firmware-manager
+      - nodejs-typescript
     optfix:
       - google
       - 1Password  

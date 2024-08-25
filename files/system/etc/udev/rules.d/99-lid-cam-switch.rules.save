@@ -1,0 +1,6 @@
+# Trigger script when the lid is opened
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{power_supply.type}=="Battery", ENV{POWER_SUPPLY_ONLINE}=="0", ENV{POWER_SUPPLY_PRESENT}=="1", RUN+="/home/dave/Nextcloud/.scripts/switch_cam.sh internal"
+
+# Trigger script when the lid is closed
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{power_supply.type}=="Battery", ENV{POWER_SUPPLY_ONLINE}=="0", ENV{POWER_SUPPLY_PRESENT}=="0", RUN+="/home/dave/Nextcloud/.scripts/switch_cam.sh external"
+

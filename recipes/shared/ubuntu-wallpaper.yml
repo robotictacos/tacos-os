@@ -4,3 +4,5 @@ modules:
   - type: script
     scripts:
     - install-ubuntu-wallpapers.sh
+    - final-steps.sh
+

@@ -1,0 +1,2 @@
+SUBSYSTEM=="input", KERNEL=="lid0", ACTION=="change", ATTR{state}=="open", RUN+="/home/dave/Nextcloud/.scripts/laptop-lid.sh"
+SUBSYSTEM=="input", KERNEL=="lid0", ACTION=="change", ATTR{state}=="closed", RUN+="/home/dave/Nextcloud/.scripts/laptop-lid.sh"
