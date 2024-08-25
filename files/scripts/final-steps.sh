@@ -6,6 +6,6 @@ dnf install nodejs-typescript
 make
 make install
 
-mkdir -p /mnt/backup
-mkdir -p /mnt/vm
-mkdir -p /mnt/games
+# mkdir -p /mnt/backup
+# mkdir -p /mnt/vm
+# mkdir -p /mnt/games
