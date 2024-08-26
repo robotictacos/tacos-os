@@ -1,8 +1,8 @@
 modules:
-#   - type: script
-#       - remove-updates-archive.sh
+  - type: script
+      - remove-updates-archive.sh
   - type: rpm-ostree
-    nocache: true
+#     Snocache: true
     repos:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
       - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
