@@ -20,11 +20,13 @@ modules:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       repo-name: flathub
       repo-title: "Flathub (system-wide)"
+      install:
+      - com.nextcloud.desktopclient.nextcloud
       remove:
       - org.gnome.Characters
       - org.gnome.Papers
       - org.gnome.font-viewer
-      - org.gnome.Maps/x86_64
+      - org.gnome.MapsS
       - org.gnome.World.PikaBackup
       - org.gnome.DejaDup
       - org.mozilla.firefox
