@@ -39,23 +39,22 @@ modules:
       - google-chrome-stable
       - code
       - nodejs-typescript
-      - cockpit-machines
-      - cockpit-networkmanager
-      - cockpit-ostree
-      - cockpit-pcp
-      - cockpit-podman
-      - cockpit-selinux
-      - cockpit-storaged
-      - cockpit-system
-      - code
+      # - cockpit-machines
+      # - cockpit-networkmanager
+      # - cockpit-ostree
+      # - cockpit-pcp
+      # - cockpit-podman
+      # - cockpit-selinux
+      # - cockpit-storaged
+      # - cockpit-system
       - kmod
-      # - system76-driver
-      # - firmware-manager
-      # - system76-power
-      # - system76-dkms
-      # - system76-acpi-dkms
-      # - system76-io-dkms
-      # - gnome-shell-extension-pop-shell
+      - system76-driver
+      - firmware-manager
+      - system76-power
+      - system76-dkms
+      - system76-acpi-dkms
+      - system76-io-dkms
+      - gnome-shell-extension-pop-shell
     optfix:
       - google
       - 1Password  
