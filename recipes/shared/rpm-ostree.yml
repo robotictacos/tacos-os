@@ -2,8 +2,8 @@ modules:
     # disable updates-archive
   - type: script
     snippet:
-      - "dnf config-manager --set-disabled updates-archive"
-      #- "rpm-ostree install --uninstall-repo=updates-archive"
+      #- "dnf config-manager --set-disabled updates-archive"
+      - "rpm-ostree install --uninstall-repo=updates-archive"
 
   - type: rpm-ostree
     nocache: true
