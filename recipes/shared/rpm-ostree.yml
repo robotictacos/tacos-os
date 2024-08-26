@@ -1,6 +1,6 @@
 modules:
-  # - type: script
-  #     - remove-updates-archive.sh
+  - type: script
+      - remove-updates-archive.sh
   - type: rpm-ostree
     nocache: true
     repos:
@@ -39,14 +39,14 @@ modules:
       - google-chrome-stable
       - code
       - nodejs-typescript
-      # - cockpit-machines
-      # - cockpit-networkmanager
-      # - cockpit-ostree
-      # - cockpit-pcp
-      # - cockpit-podman
-      # - cockpit-selinux
-      # - cockpit-storaged
-      # - cockpit-system
+      - cockpit-machines
+      - cockpit-networkmanager
+      - cockpit-ostree
+      - cockpit-pcp
+      - cockpit-podman
+      - cockpit-selinux
+      - cockpit-storaged
+      - cockpit-system
       - kmod
       - system76-driver
       - firmware-manager
