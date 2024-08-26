@@ -14,7 +14,6 @@ modules:
       - system76-driver
       - tldr
       - btop
-      - clevis-dracut
       - cockpit
       - dnf-plugins-core
       - v4l-utils
