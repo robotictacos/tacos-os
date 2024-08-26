@@ -1,5 +1,6 @@
 modules:
   - type: rpm-ostree
+    nocache: true
     repos:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
       - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
@@ -14,6 +15,7 @@ modules:
       - system76-driver
       - tldr
       - btop
+      - nvtop
       - cockpit
       - dnf-plugins-core
       - v4l-utils
