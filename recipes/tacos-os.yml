@@ -19,7 +19,7 @@ modules:
                        # while putting files in /etc/ is done on booted system by system administrators.
                        # read more about this in files module reference.
   - type: script
-    #snippet:
+    snippet:
       - "dnf install rpmfusion-free-release-tainted -y"
       - "dnf --repo=rpmfusion-nonfree-tainted install \"*-firmware\""
     scripts:
