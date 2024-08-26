@@ -19,9 +19,3 @@ curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pub
 rpm --import /tmp/linux_signing_key.pub
 rpm-ostree install pam_python howdy howdy-gtk
 bash ./remove-fedora-repos.sh
-
-
-
-# mkdir -p /mnt/backup
-# mkdir -p /mnt/vm
-# mkdir -p /mnt/games
