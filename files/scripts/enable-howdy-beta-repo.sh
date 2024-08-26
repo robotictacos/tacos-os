@@ -28,5 +28,5 @@ echo "enabled=1" >> /etc/yum.repos.d/howdy-beta.repo
 echo "Downloading Howdy Signing Key"
 curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 rpm --import /tmp/linux_signing_key.pub
-dnf install -y pam_python howdy howdy-gtk
+
 

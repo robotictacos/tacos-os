@@ -25,7 +25,7 @@ modules:
     scripts:
       - remove-fedora-repos.sh
       - enable-chrome-yum-repo.sh
-      - enable-howdy-beta-repo.sh     
+      # - enable-howdy-beta-repo.sh     
   - from-file: shared/flatpaks.yml
   - from-file: shared/rpm-ostree.yml
   - from-file: shared/akmods.yml

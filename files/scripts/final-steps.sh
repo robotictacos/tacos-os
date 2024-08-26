@@ -13,11 +13,13 @@ cp -r /root/.local/share/gnome-shell/extensions/system76-power@system76.com/ /us
 flatpak run com.helix_editor.Helix --grammar fetch
 flatpak run com.helix_editor.Helix --grammar build
 
-# dnf swap ffmpeg-free ffmpeg --allowerasing
-# dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-# dnf update @sound-and-video
-# dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-# dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+#Enable Howdy
+echo "Downloading Howdy Signing Key"
+curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
+rpm --import /tmp/linux_signing_key.pub
+dnf install -y pam_python howdy howdy-gtk
+bash ./remove-fedora-repos.sh
+
 
 
 # mkdir -p /mnt/backup
