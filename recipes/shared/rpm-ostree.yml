@@ -14,7 +14,6 @@ modules:
       - https://negativo17.org/repos/fedora-multimedia.repo
     install:
       # command line utilities
-      - system76-driver
       - tldr
       - btop
       - nvtop
@@ -26,36 +25,36 @@ modules:
       - ffmpeg
       - fastfetch
       - zoxide
-      # VIRTUALIZATION**************
-      - guestfs-tools
-      - libguestfs-tools
-      - python3-libguestfs
-      - edk2-ovmf
-      # System *********************
-      - cronie
-      - cronie-anacron
-      - crontabs
-      - timeshift
-      - irqbalance
-      - google-chrome-stable
-      - code
-      - nodejs-typescript
-      - cockpit-machines
-      - cockpit-networkmanager
-      - cockpit-ostree
-      - cockpit-pcp
-      - cockpit-podman
-      - cockpit-selinux
-      - cockpit-storaged
-      - cockpit-system
-      - kmod
-      - system76-driver
-      - firmware-manager
-      - system76-power
-      - system76-dkms
-      - system76-acpi-dkms
-      - system76-io-dkms
-      - gnome-shell-extension-pop-shell
-    optfix:
-      - google
-      - 1Password  
+    #   # VIRTUALIZATION**************
+    #   - guestfs-tools
+    #   - libguestfs-tools
+    #   - python3-libguestfs
+    #   - edk2-ovmf
+    #   # System *********************
+    #   - cronie
+    #   - cronie-anacron
+    #   - crontabs
+    #   - timeshift
+    #   - irqbalance
+    #   - google-chrome-stable
+    #   - code
+    #   - nodejs-typescript
+    #   - cockpit-machines
+    #   - cockpit-networkmanager
+    #   - cockpit-ostree
+    #   - cockpit-pcp
+    #   - cockpit-podman
+    #   - cockpit-selinux
+    #   - cockpit-storaged
+    #   - cockpit-system
+    #   - kmod
+    #   - system76-driver
+    #   - firmware-manager
+    #   - system76-power
+    #   - system76-dkms
+    #   - system76-acpi-dkms
+    #   - system76-io-dkms
+    #   - gnome-shell-extension-pop-shell
+    # optfix:
+    #   - google
+    #   - 1Password  
