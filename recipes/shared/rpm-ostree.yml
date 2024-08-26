@@ -1,6 +1,6 @@
 modules:
-  - type: script
-      - remove-updates-archive.sh
+#   - type: script
+#       - remove-updates-archive.sh
   - type: rpm-ostree
 #     Snocache: true
     repos:

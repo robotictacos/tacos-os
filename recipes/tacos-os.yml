@@ -25,7 +25,7 @@ modules:
     scripts:
       - enable-chrome-yum-repo.sh
       - enable-howdy-beta-repo.sh
-      #- remove-updates-archive.sh
+      - remove-updates-archive.sh
   - from-file: shared/flatpaks.yml
   - from-file: shared/rpm-ostree.yml
   - from-file: shared/akmods.yml
