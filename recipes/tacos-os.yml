@@ -23,7 +23,7 @@ modules:
     #   - "dnf install rpmfusion-free-release-tainted -y"
     #   - "dnf --repo=rpmfusion-nonfree-tainted install \"*-firmware\""
     scripts:
-      - remove-fedora-repos.sh
+      #- remove-fedora-repos.sh
       - enable-chrome-yum-repo.sh
       # - enable-howdy-beta-repo.sh     
   - from-file: shared/flatpaks.yml
