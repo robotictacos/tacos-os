@@ -13,9 +13,4 @@ cp -r /root/.local/share/gnome-shell/extensions/system76-power@system76.com/ /us
 flatpak run com.helix_editor.Helix --grammar fetch
 flatpak run com.helix_editor.Helix --grammar build
 
-#Enable Howdy
-echo "Downloading Howdy Signing Key"
-curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
-rpm --import /tmp/linux_signing_key.pub
-rpm-ostree install v4l-utils python3-dlib python3-devel opencv ffmpeg nvtop pam_python howdy howdy-gtk
 bash ./remove-fedora-repos.sh
