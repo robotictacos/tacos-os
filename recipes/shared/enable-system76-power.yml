@@ -1,0 +1,15 @@
+modules:
+  - type: rpm-ostree
+    install:
+      - kernel-devel
+      - dnf-plugins-core
+      - kmod
+      - system76-driver
+      - system76-power
+      - system76-dkms
+      - system76-acpi-dkms
+      - system76-io-dkms
+      - gnome-shell-extension-pop-shell
+  - type: script  
+    scripts:
+      - remove-fedora-repos.sh

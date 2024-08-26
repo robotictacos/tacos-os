@@ -30,5 +30,6 @@ modules:
   - from-file: shared/gnome-yafti.yml
   - from-file: shared/systemd-brew.yml
   - from-file: shared/enable-howdy.yml
+  - from-file: shared/enable-system76-power.yml
   - from-file: shared/removals.yml
   #- from-file: shared/ubuntu-wallpaper.yml
