@@ -35,11 +35,22 @@ modules:
       - timeshift
       - irqbalance
       - google-chrome-stable
+      - code
       - fastfetch
       - gnome-shell-extension-pop-shell
-      - system76*
+      - system76-driver
       - firmware-manager
       - nodejs-typescript
+      - cockpit-machines
+      - cockpit-networkmanager
+      - cockpit-ostree
+      - cockpit-pcp
+      - cockpit-podman
+      - cockpit-selinux
+      - cockpit-storaged
+      - cockpit-system
+      - system76-acpi-dkms
+      - system76*
     optfix:
       - google
       - 1Password  

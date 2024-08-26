@@ -6,13 +6,15 @@ modules:
   - type: systemd
     # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
-      enabled::
+      enabled:
+        - dkms.service
         - smb.service
         - nmb.service
         - libvirtd.service
         - system76-firmware-daemon
         - com.system76.PowerDaemon.service
         - system76-power-wake
+        
     user:
       enabled:
         - com.system76.FirmwareManager.Notify.timer
