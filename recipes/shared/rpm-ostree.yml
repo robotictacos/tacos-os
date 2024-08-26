@@ -1,6 +1,6 @@
 modules:
-#   - type: script
-#       - remove-updates-archive.sh
+  - type: script
+      - remove-updates-archive.sh
   - type: rpm-ostree
     nocache: true
     repos:
@@ -11,7 +11,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-%OS_VERSION%/ublue-os-akmods-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync-staging/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-staging-fedora-%OS_VERSION%.repo
       - https://negativo17.org/repos/fedora-multimedia.repo
-      - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
     install:
       # command line utilities
       - system76-driver

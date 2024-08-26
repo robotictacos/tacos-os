@@ -19,13 +19,13 @@ modules:
                        # while putting files in /etc/ is done on booted system by system administrators.
                        # read more about this in files module reference.
   - type: script
-    snippet:
-      - "dnf install rpmfusion-free-release-tainted -y"
-      - "dnf --repo=rpmfusion-nonfree-tainted install \"*-firmware\""
+    # snippet:
+    #   - "dnf install rpmfusion-free-release-tainted -y"
+    #   - "dnf --repo=rpmfusion-nonfree-tainted install \"*-firmware\""
     scripts:
-      - enable-chrome-yum-repo.sh
-      - enable-howdy-beta-repo.sh
       - remove-fedora-repos.sh
+      - enable-chrome-yum-repo.sh
+      - enable-howdy-beta-repo.sh     
   - from-file: shared/flatpaks.yml
   - from-file: shared/rpm-ostree.yml
   - from-file: shared/akmods.yml
