@@ -1,7 +1,7 @@
 #!/bin/bash
 set -oue pipefail
 # install system76 gnome widget
-dnf install nodejs
+rpm-ostree install nodejs
 npm install -g typescript
 git clone https://github.com/pop-os/gnome-shell-extension-system76-power.git
 cd gnome-shell-extension-system76-power
@@ -17,7 +17,7 @@ flatpak run com.helix_editor.Helix --grammar build
 echo "Downloading Howdy Signing Key"
 curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 rpm --import /tmp/linux_signing_key.pub
-rpm-ostree install -y pam_python howdy howdy-gtk
+rpm-ostree install pam_python howdy howdy-gtk
 bash ./remove-fedora-repos.sh
 
 

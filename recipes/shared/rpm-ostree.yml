@@ -17,7 +17,7 @@ modules:
       - tldr
       - btop
       - nvtop
-      - dnf-plugins-core
+      # - dnf-plugins-core
       - v4l-utils
       - python3-dlib
       - python3-devel
@@ -49,13 +49,13 @@ modules:
       - cockpit-system
       - code
       - kmod
-      - system76-driver
-      - firmware-manager
-      - system76-power
-      - system76-dkms
-      - system76-acpi-dkms
-      - system76-io-dkms
-      - gnome-shell-extension-pop-shell
+      # - system76-driver
+      # - firmware-manager
+      # - system76-power
+      # - system76-dkms
+      # - system76-acpi-dkms
+      # - system76-io-dkms
+      # - gnome-shell-extension-pop-shell
     optfix:
       - google
       - 1Password  
