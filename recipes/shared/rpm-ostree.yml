@@ -38,8 +38,6 @@ modules:
       - code
       - fastfetch
       - gnome-shell-extension-pop-shell
-      - system76-driver
-      - firmware-manager
       - nodejs-typescript
       - cockpit-machines
       - cockpit-networkmanager
@@ -49,7 +47,12 @@ modules:
       - cockpit-selinux
       - cockpit-storaged
       - cockpit-system
-      - system76*
+      - system76-driver
+      - firmware-manager
+      - system76-power
+      - system76-dkms
+      - system76-acpi-dkms
+      - system76-io-dkms
     optfix:
       - google
       - 1Password  
