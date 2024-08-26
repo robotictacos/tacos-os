@@ -21,7 +21,6 @@ modules:
     snippet:
       - "rpm-ostree reset"
     scripts:
-      - build-prep.sh
       - enable-chrome-yum-repo.sh
       - enable-howdy-beta-repo.sh
   - from-file: shared/rpm-ostree.yml
