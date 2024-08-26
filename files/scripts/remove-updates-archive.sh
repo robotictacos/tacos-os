@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -euo pipefail
 # Define the path to the updates-archive repository
 repo_path="/etc/yum.repos.d/fedora-updates-archive.repo"  
 
