@@ -1,5 +1,7 @@
 #!/bin/bash
-set -oue pipefail 
+set -oue pipefail
+# install system76 gnome widget
+npm install -g typescript
 git clone https://github.com/pop-os/gnome-shell-extension-system76-power.git
 cd gnome-shell-extension-system76-power
 dnf install nodejs-typescript
