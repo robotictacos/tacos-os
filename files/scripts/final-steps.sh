@@ -13,4 +13,4 @@ cp -r /root/.local/share/gnome-shell/extensions/system76-power@system76.com/ /us
 flatpak run com.helix_editor.Helix --grammar fetch
 flatpak run com.helix_editor.Helix --grammar build
 
-bash ./remove-fedora-repos.sh
+# bash ./remove-fedora-repos.sh
