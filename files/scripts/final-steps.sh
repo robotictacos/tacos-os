@@ -17,7 +17,7 @@ flatpak run com.helix_editor.Helix --grammar build
 echo "Downloading Howdy Signing Key"
 curl https://download.copr.fedorainfracloud.org/results/principis/howdy-beta/pubkey.gpg > /tmp/pubkey.gpg
 rpm --import /tmp/linux_signing_key.pub
-dnf install -y pam_python howdy howdy-gtk
+rpm-ostree install -y pam_python howdy howdy-gtk
 bash ./remove-fedora-repos.sh
 
 
