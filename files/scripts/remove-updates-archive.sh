@@ -6,8 +6,11 @@ repo_path="/etc/yum.repos.d/fedora-updates-archive.repo"
 # Check if the repository exists
 if [ -e "$repo_path" ]; then
     # Remove the repository
-    rm -rf "$repo_path"
-    echo "Updates-archive repository removed successfully."
+    if rm -rf "$repo_path"; then
+        echo "Updates-archive repository removed successfully."
+    else
+        echo "Updates-archive repository does not exist."
+    fi
 else
     echo "Updates-archive repository does not exist."
 fi
