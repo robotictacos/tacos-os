@@ -9,10 +9,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-%OS_VERSION%/ublue-os-akmods-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync-staging/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-staging-fedora-%OS_VERSION%.repo
       - https://negativo17.org/repos/fedora-multimedia.repo
-<<<<<<< HEAD
-=======
       - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
->>>>>>> 9af2261 (Update rpm-ostree.yml with additional repositories and packages)
     install:
       # command line utilities
       - system76-driver
@@ -39,13 +36,6 @@ modules:
       - timeshift
       - irqbalance
       - google-chrome-stable
-<<<<<<< HEAD
-      - code
-      - fastfetch
-      - gnome-shell-extension-pop-shell
-      - nodejs-typescript
-=======
->>>>>>> 9af2261 (Update rpm-ostree.yml with additional repositories and packages)
       - cockpit-machines
       - cockpit-networkmanager
       - cockpit-ostree
@@ -54,17 +44,8 @@ modules:
       - cockpit-selinux
       - cockpit-storaged
       - cockpit-system
-<<<<<<< HEAD
-      - system76-driver
-      - firmware-manager
-      - system76-power
-      - system76-dkms
-      - system76-acpi-dkms
-      - system76-io-dkms
-=======
       - code
 
->>>>>>> 9af2261 (Update rpm-ostree.yml with additional repositories and packages)
     optfix:
       - google
       - 1Password  
