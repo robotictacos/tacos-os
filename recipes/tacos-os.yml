@@ -23,11 +23,9 @@ modules:
     #   - "dnf install rpmfusion-free-release-tainted -y"
     #   - "dnf --repo=rpmfusion-nonfree-tainted install \"*-firmware\""
     scripts:
-      #- remove-fedora-repos.sh
-      - enable-chrome-yum-repo.sh
-      # - enable-howdy-beta-repo.sh     
-  - from-file: shared/flatpaks.yml
+      - enable-chrome-yum-repo.sh  
   - from-file: shared/rpm-ostree.yml
+  - from-file: shared/flatpaks.yml
   - from-file: shared/akmods.yml
   - from-file: shared/gnome-yafti.yml
   - from-file: shared/systemd-brew.yml
