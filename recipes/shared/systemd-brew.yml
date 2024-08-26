@@ -7,7 +7,6 @@ modules:
     # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
       enabled:
-        - dkms.service
         - smb.service
         - nmb.service
         - libvirtd.service

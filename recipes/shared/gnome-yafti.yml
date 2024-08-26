@@ -1,0 +1,28 @@
+modules:
+  - type: gnome-extensions
+    install:
+    - 4481 #Forge - forge@jmmaranan.com
+    - 5090 #space-bar@luchrioh
+    - 5660 #weatherornot@somepaulo.github.io  
+    - 97   #coverflowalttab@palatis.blogspot.com
+    - 1460 #vitals
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix.
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
+
+  - type: bling
+    install:
+      - 1password
+      - dconf-update-service
+
+  - type: yafti
