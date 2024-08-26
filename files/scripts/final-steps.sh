@@ -9,6 +9,10 @@ make
 make install
 cp -r /root/.local/share/gnome-shell/extensions/system76-power@system76.com/ /usr/share/gnome-shell/extensions/
 
+# enable syntax highlighting in Helix
+flatpak run com.helix_editor.Helix --grammar fetch
+flatpak run com.helix_editor.Helix --grammar build
+
 # dnf swap ffmpeg-free ffmpeg --allowerasing
 # dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 # dnf update @sound-and-video

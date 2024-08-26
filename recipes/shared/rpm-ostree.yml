@@ -49,7 +49,6 @@ modules:
       - cockpit-selinux
       - cockpit-storaged
       - cockpit-system
-      - system76-acpi-dkms
       - system76*
     optfix:
       - google
