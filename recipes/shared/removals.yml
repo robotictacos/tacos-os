@@ -13,4 +13,21 @@ modules:
     - incus
     - incus-agent
 
+  - type: default-flatpaks
+    notify: true # Send notification after install/uninstall is finished (true/false)
+    system:
+      # If no repo information is specified, Flathub will be used by default
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      repo-title: "Flathub (system-wide)"
+      remove:
+      - app/org.gnome.Characters/x86_64/stable
+      - app/org.gnome.Papers/x86_64/stable
+      - app/org.gnome.font-viewer/x86_64/stable
+      - app/org.gnome.Maps/x86_64/stable
+      - app/org.gnome.World.PikaBackup/x86_64/stable
+      - app/org.gnome.DejaDup/x86_64/stable
+      - app/org.mozilla.firefox/x86_64/stable
+      - app/org.mozilla.Thunderbird/x86_64/stable
+
 
