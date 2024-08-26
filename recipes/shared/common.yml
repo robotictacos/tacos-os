@@ -46,4 +46,4 @@ modules:
       GearLever: it.mijorus.gearlever
       Digikam: org.kde.digikam
       OnlyOffice: org.onlyoffice.desktopeditors
-      Vorta: com.borgbase.Vorta
+      Meld: org.gnome.meld
