@@ -1,7 +1,7 @@
 modules:
-  - type: script
-    scripts:
-      - enable-system76-power.sh
+  # - type: script
+  #   scripts:
+  #     - enable-system76-power.sh
   - type: rpm-ostree
     repos:
       - system76.repo
@@ -9,6 +9,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync-staging/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-staging-fedora-%OS_VERSION%.repo
     install:
       # - kmod
+      - kernel-devel
+      - kernel-headers
       - dbus-x11
       - system76-dkms
       - system76-power
