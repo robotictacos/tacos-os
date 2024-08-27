@@ -1,7 +1,7 @@
 modules:
-  - type: script
-    scripts:
-      - enable-howdy.sh
+  # - type: script
+  #   scripts:
+  #     - enable-howdy.sh
   - type: rpm-ostree
     install:
       - v4l-utils 
