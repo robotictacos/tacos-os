@@ -1,7 +1,7 @@
 modules:
-  # - type: script
-  #   scripts:
-  #     - enable-system76-power.sh
+  - type: script
+    scripts:
+      - remove-fedora-repos.sh
   - type: rpm-ostree
     repos:
       - system76.repo
@@ -22,6 +22,6 @@ modules:
       - system76-io-dkms
       - system76-acpi-dkms
       - gnome-shell-extension-pop-shell
-  - type: script  
-    scripts:
-      - remove-fedora-repos.sh
+  # - type: script  
+  #   scripts:
+  #     - remove-fedora-repos.sh
