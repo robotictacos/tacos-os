@@ -18,6 +18,7 @@ modules:
       - btop
       - fastfetch
       - zoxide
+      - dnf-plugins-core
       # VIRTUALIZATION**************
       - guestfs-tools
       - libguestfs-tools
