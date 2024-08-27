@@ -10,13 +10,13 @@ modules:
         - smb.service
         - nmb.service
         - libvirtd.service
-        - system76-firmware-daemon
-        - com.system76.PowerDaemon.service
-        - system76-power-wake
-      masked:
-        - power-profiles-daemon.service  
-    user:
-      enabled:
-        - com.system76.FirmwareManager.Notify.timer
+    #     - system76-firmware-daemon
+    #     - com.system76.PowerDaemon.service
+    #     - system76-power-wake
+    #   masked:
+    #     - power-profiles-daemon.service  
+    # user:
+    #   enabled:
+    #     - com.system76.FirmwareManager.Notify.timer
     #     - psd.service # TODO: copy service description files to the repo
     
